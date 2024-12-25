@@ -1,0 +1,13 @@
+*.parquet
+
+trans_cache/*
+**/trans_cache/*
+tran_cache/
+
+*.pkl
+*.csv
+*.pt
+*.pth
+*.log
+*.txt
+*.json
