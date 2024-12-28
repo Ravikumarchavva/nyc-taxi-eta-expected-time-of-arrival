@@ -11,3 +11,6 @@ tran_cache/
 *.log
 *.txt
 *.json
+
+*.pyc
+*.tsv
