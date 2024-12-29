@@ -4,6 +4,9 @@ trans_cache/*
 **/trans_cache/*
 tran_cache/
 
+**/catboost_info
+notebooks/catboost_info
+
 *.pkl
 *.csv
 *.pt

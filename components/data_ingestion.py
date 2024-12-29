@@ -1,7 +1,8 @@
 import polars as pl
 import sys
 sys.path.append("..")
-from my_utils.data_utils import Preprocess
+from utils.data_utils import Preprocess
+from tqdm.auto import tqdm
 
 class DataIngestion:
     def __init__(self, file_paths, batch_size=5_000_000):
@@ -41,11 +42,28 @@ class DataIngestion:
         batch = self.current_df.slice(self.current_offset, end_offset - self.current_offset)
         self.current_offset = end_offset
         return batch
+    
+    # Define a method to get the total number of rows and batches in the dataset
+    def get_dataset_stats(self):
+        total_rows = 0
+        total_batches = 0
+        
+        for file_path in tqdm(self.file_paths, desc="Calculating total rows & batches", unit="file"):
+            df = pl.read_parquet(file_path)
+            file_rows = df.height
+            total_rows += file_rows
+            total_batches += (file_rows + self.batch_size - 1) // self.batch_size  # Ceiling division
+
+        return f"{total_rows:_}", total_batches
+
 
     # Define the __len__ method to calculate batch count
     def __len__(self):
         total_rows = 0
-        for file_path in self.file_paths:
+        
+        for file_path in tqdm(self.file_paths, desc="Calculating total rows & batches", unit="file"):
             df = pl.read_parquet(file_path)
-            total_rows += df.height
-        return total_rows // self.batch_size + 1
+            file_rows = df.height
+            total_rows += file_rows
+
+        return f"{total_rows:_}"
