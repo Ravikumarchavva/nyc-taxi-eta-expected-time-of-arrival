@@ -1,7 +1,8 @@
 import polars as pl
 import sys
+import re
 sys.path.append("..")
-from configs.data_configs import PROCESSED_DATA_DIR
+from configs.data_configs import PROCESSED_DATA_DIR, RAW_FILE_LIST
 
 from tqdm.auto import tqdm
 import os
@@ -69,19 +70,16 @@ class DataPreprocessing:
             # Clean and prepare the processed data directory
             self.clean_processed_data_dir()
 
-            # Process the data through batches
-            for i, batch in tqdm(enumerate(self.data_ingestor), total=self.total_batches, desc="Processing Batches", unit="batch"):
-                
-                # Apply Preprocessing
-                clean_batch = self.preprocess_batch(batch)
-                
-                # Join the data with the weather data
-                data = clean_batch.join(self.nyc, left_on='dropoff_date', right_on='datetime', how='inner').drop('dropoff_date')
-                
-                # Save Features and Labels as Parquet
-                data_parquet_file = f"{PROCESSED_DATA_DIR}/nyc_batch_{i+1:03d}.parquet"  # Using zero-padded file names
-                data.write_parquet(data_parquet_file)
-            
+            for file_path in tqdm(RAW_FILE_LIST, desc="Processing Files", unit="file"):
+                data = pl.read_parquet(file_path)
+                data = self.preprocess_batch(data)
+                data = data.join(self.nyc, left_on='dropoff_date', right_on='datetime', how='inner').drop('dropoff_date')
+
+                match = re.search(r'(\d{4}-\d{2})', file_path)
+                if match:
+                    year_month = match.group(1)
+                    out_file_name = f"{PROCESSED_DATA_DIR}/tripdata_{year_month}.parquet"
+                    data.write_parquet(out_file_name)
             print("Data Processing Completed!")
 
         except Exception as e:
