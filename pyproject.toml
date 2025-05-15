@@ -1,8 +1,11 @@
 [project]
-name = "uber-time-estimation"
+name = "nyc-taxi-eta-expected-time-of-arrival"
 version = "0.1.0"
-description = "Add your description here"
+description = "This project aims to estimate the Expected Time of Arrival (ETA) for taxis in New York City. By leveraging weather data and taxi trip data sourced from the NYC Open Data platform, the project provides insights and predictions to improve transportation efficiency and user experience."
 readme = "README.md"
+authors = [
+    { name = "Ravikumarchavva", email = "ravikumarchavva@outlook.com" }
+]
 requires-python = ">=3.12"
 dependencies = [
     "polars>=1.29.0",
@@ -10,16 +13,16 @@ dependencies = [
     "tqdm>=4.67.1",
 ]
 
-[project.scripts]
-uber-time-estimation = "uber_time_estimation:main"
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
 [dependency-groups]
 dev = [
     "ipykernel>=6.29.5",
     "ipywidgets>=8.1.7",
 ]
 
+[project.scripts]
+nyc-taxi-eta-expected-time-of-arrival = "nyc_taxi_eta_expected_time_of_arrival:main"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
