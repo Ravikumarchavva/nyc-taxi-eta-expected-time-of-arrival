@@ -1,8 +1,10 @@
 import polars as pl
 import sys
+
 sys.path.append("..")
-from utils.data_utils import Preprocess
+from nyc_taxi_eta_expected_time_of_arrival.utils.data_utils import Preprocess
 from tqdm.auto import tqdm
+
 
 class DataIngestion:
     def __init__(self, file_paths):
@@ -16,10 +18,12 @@ class DataIngestion:
         """
         if self.current_file_index >= len(self.file_paths):
             raise StopIteration
-        
+
         file_path = self.file_paths[self.current_file_index]
         # Load the DataFrame and apply preprocessing
-        self.current_df = pl.read_parquet(file_path).pipe(lambda df: Preprocess.reduce_memory_usage(df, print_info=False))
+        self.current_df = pl.read_parquet(file_path).pipe(
+            lambda df: Preprocess.reduce_memory_usage(df, print_info=False)
+        )
         self.current_file_index += 1
 
     def __iter__(self):
@@ -42,8 +46,10 @@ class DataIngestion:
     def get_dataset_stats(self):
         total_rows = 0
         total_files = len(self.file_paths)
-        
-        for file_path in tqdm(self.file_paths, desc="Calculating total rows", unit="file"):
+
+        for file_path in tqdm(
+            self.file_paths, desc="Calculating total rows", unit="file"
+        ):
             df = pl.read_parquet(file_path)
             total_rows += df.height
 
@@ -52,8 +58,10 @@ class DataIngestion:
     # Define the __len__ method to return the total number of rows in all files
     def __len__(self):
         total_rows = 0
-        
-        for file_path in tqdm(self.file_paths, desc="Calculating total rows", unit="file"):
+
+        for file_path in tqdm(
+            self.file_paths, desc="Calculating total rows", unit="file"
+        ):
             df = pl.read_parquet(file_path)
             total_rows += df.height
 

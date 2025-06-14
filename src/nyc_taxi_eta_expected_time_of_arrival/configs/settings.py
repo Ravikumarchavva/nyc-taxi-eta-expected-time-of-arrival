@@ -3,11 +3,11 @@ from pathlib import Path
 
 # Define the directories
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent.parent
-DATA_DIR = ROOT_DIR / 'data'
-RAW_DATA_DIR_SMALL = DATA_DIR / 'rawdata'
-RAW_DATA_DIR = DATA_DIR / 'raw_data'
-PROCESSED_DATA_DIR = DATA_DIR / 'processed_data'
-MODEL_DATA_DIR = DATA_DIR / 'model_data'
+DATA_DIR = ROOT_DIR / "data"
+RAW_DATA_DIR_SMALL = DATA_DIR / "rawdata"
+RAW_DATA_DIR = DATA_DIR / "raw_data"
+PROCESSED_DATA_DIR = DATA_DIR / "processed_data"
+MODEL_DATA_DIR = DATA_DIR / "model_data"
 
 # # # Helper function to get sorted .parquet files
 # def get_parquet_files(dir_path):

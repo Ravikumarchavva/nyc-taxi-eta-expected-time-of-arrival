@@ -1,0 +1,30 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+    - name: Install uv
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+    - name: Install dependencies
+      run: |
+        uv sync
+    - name: Lint and format with Ruff
+      run: |
+        # add ruff
+        uv add ruff
+        # Check linting errors
+        uv run ruff check .
+        # Check formatting
+        uv run ruff format .

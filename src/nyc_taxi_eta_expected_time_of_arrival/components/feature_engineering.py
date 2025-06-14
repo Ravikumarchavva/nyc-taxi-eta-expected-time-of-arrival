@@ -45,7 +45,6 @@ class FeatureEngineering:
 
             # Check if a path exists
             if nx.has_path(G, start_node, end_node):
-
                 if plot:
                     path = nx.astar_path(
                         G,
@@ -53,7 +52,7 @@ class FeatureEngineering:
                         end_node,
                         heuristic=lambda u, v: FeatureEngineering.haversine_distance(
                             u, v, G
-                         ),
+                        ),
                         weight="length",
                     )
 
