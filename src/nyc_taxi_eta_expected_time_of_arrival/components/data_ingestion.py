@@ -1,13 +1,11 @@
 import polars as pl
-import sys
 
-sys.path.append("..")
 from nyc_taxi_eta_expected_time_of_arrival.utils.data_utils import Preprocess
 from tqdm.auto import tqdm
 
 
 class DataIngestion:
-    def __init__(self, file_paths):
+    def __init__(self, file_paths: list[str]):
         self.file_paths = file_paths
         self.current_file_index = 0
         self.current_df = None
