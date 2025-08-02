@@ -1,12 +1,10 @@
-<center style="font-size: xx-large; font-weight: bold;">ETA: Estimated Time of Arrival</center>
+<h1 align="center"><strong>ETA: Estimated Time of Arrival</strong></h1>
 
----
 
 ## Problem Statement
 
 Using historical taxi trip data, build a predictive model to estimate the time of arrival for the taxi trips in NYC (New York City). 
 
----
 
 ## Project Scope
 
@@ -24,7 +22,6 @@ Exclusions:
 - Implementing dynamic pricing models.
 - Route optimization strategies.
 
----
 
 ## Success Metrics
 
@@ -32,15 +29,14 @@ Exclusions:
 - Dashboard should provide clear view of travel time patterns with respect to various factors (e.g., time of day, weather conditions).
 - Chatbot should able to trigger inference pipeline for real-time ETA predictions.
 
----
 
 ## Functional Requirements
 
----
+
 
 ## Non-Functional Requirements
 
---
+
 
 ## Architecture
 
