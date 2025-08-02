@@ -1,84 +1,41 @@
-# NYC Taxi ETA Prediction
+<center style="font-size: xx-large; font-weight: bold;">ETA: Estimated Time of Arrival</center>
 
-## Project Overview
-This project aims to estimate the Expected Time of Arrival (ETA) for taxis in New York City. By leveraging weather data and taxi trip data sourced from the NYC Open Data platform, the project provides insights and predictions to improve transportation efficiency and user experience.
+---
 
-## Features
-- **Data Processing**: Clean and preprocess raw taxi and weather data.
-- **Machine Learning Models**: Train and evaluate models to predict taxi ETAs.
-- **Deep Learning Models**: Explore advanced modeling techniques for better accuracy.
-- **Visualization**: Analyze and visualize trip patterns and predictions.
+## Problem Statement
 
-## Project Structure
-```
-├── data/
-│   ├── nyc_region_coordinates.csv
-│   ├── nyc_tlc_yellow_taxi_data/
-│   │   ├── yellow_tripdata_2009-01.parquet
-│   │   └── ...
-│   └── raw_data/
-├── notebooks/
-│   ├── data_processing.ipynb
-│   ├── dl_modeling.ipynb
-│   ├── downloader.ipynb
-│   ├── ml_modeling.ipynb
-│   └── starter.ipynb
-├── public/
-│   ├── data_dictionary_trip_records_fhv.pdf
-│   ├── data_dictionary_trip_records_hvfhs.pdf
-│   ├── nyc_multiple_rides_with_length.html
-│   ├── personal_project_notes.docx
-│   ├── shortest_path_finding.png
-│   └── trip_record_user_guide.pdf
-├── src/
-│   └── uber_time_estimation/
-├── pyproject.toml
-├── README.md
-└── uv.lock
-```
+Using historical taxi trip data, build a predictive model to estimate the time of arrival for the taxi trips in NYC (New York City). 
 
-## Getting Started
+---
 
-### Prerequisites
-- Python 3.12 or higher
-- Recommended: Virtual environment by `uv`
+## Project Scope
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Ravikumarchavva/nyc-taxi-eta-expected-time-of-arrival.git
-   cd nyc-taxi-eta-expected-time-of-arrival
-   ```
-2. Install dependencies:
-   ```bash
-   uv sync
-   ```
+The goal is to develop a machine learning model that can accurately estimate travel times based on various factors such as pickup and drop-off locations, time of day, and traffic conditions.
 
-### Data Setup
-1. Download the NYC taxi and weather data from the NYC Open Data platform.
-2. Place the data in the `data/` directory as per the structure above.
+The key objectives include (Inclusions):
 
-### Running the Project
-- **Data Processing**: Run the `data_processing.ipynb` notebook to clean and preprocess the data.
-- **Model Training**: Use `ml_modeling.ipynb` or `dl_modeling.ipynb` to train and evaluate models.
-- **Visualization**: Explore trip patterns using the `starter.ipynb` notebook.
+- Build a predictive model for ETA.
+- Build a BI dashboard for data visualization and analysis, highlighting patterns and trends in taxi travel times.
+- Develop an interactive chatbot to simulate real-time data streaming and answer ad-hoc queries using MCP (Model Context Protocol).
 
-## Contributing
-Contributions are welcome! Please follow these steps:
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request with a detailed description of your changes.
 
-## Suggestions for Improvement
-1. **Documentation**: Add detailed docstrings and comments in the codebase.
-2. **Testing**: Implement unit tests for critical functions and models.
-3. **Automation**: Create scripts for data downloading and preprocessing to streamline the workflow.
-4. **Deployment**: Package the project for deployment as a web service or API.
-5. **Visualization**: Enhance visualizations with interactive dashboards (e.g., using Plotly or Dash).
+Exclusions:
 
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+- Implementing dynamic pricing models.
+- Route optimization strategies.
 
-## Acknowledgments
-- NYC Open Data platform for providing the taxi and weather datasets.
-- Open-source contributors and libraries used in this project.
+---
+
+## Success Metrics
+
+- ETA prediction should be ≤ 5 minutes difference (RMSE) for 90% of trips.
+- Dashboard should provide clear view of travel time patterns with respect to various factors (e.g., time of day, weather conditions).
+- Chatbot should able to trigger inference pipeline for real-time ETA predictions.
+
+---
+
+## Functional Requirements
+
+---
+
+## Non-Functional Requirements
