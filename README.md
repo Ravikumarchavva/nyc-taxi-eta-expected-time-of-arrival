@@ -39,3 +39,15 @@ Exclusions:
 ---
 
 ## Non-Functional Requirements
+
+--
+
+## Architecture
+
+- Following the medallion architecture pattern, the project will be organized into multiple layers:
+  - **Bronze Layer**: Raw data ingestion and storage.
+  - **Silver Layer**: Data cleaning, transformation, and enrichment.
+  - **ML Layer**: Model training, evaluation, and deployment.
+  - **Gold Layer**: Aggregated and curated datasets for analysis and modeling.
+
+![Data Architecture Diagram](public/data_architecture.drawio.png)

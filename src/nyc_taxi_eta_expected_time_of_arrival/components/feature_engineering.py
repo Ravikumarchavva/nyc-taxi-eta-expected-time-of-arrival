@@ -118,7 +118,7 @@ class FeatureEngineering:
 
                 return path_length
             else:
-                print(f"❌ No path exists between the given points.")
+                print("❌ No path exists between the given points.")
 
         except Exception as e:
             print(f"🚨 Error - {e}")

@@ -1,6 +1,5 @@
 import polars as pl
 from configs.data_configs import PROCESSED_FILE_LIST  # Added import
-import pandas as pd  # Added import
 import os
 from tqdm.auto import tqdm
 
