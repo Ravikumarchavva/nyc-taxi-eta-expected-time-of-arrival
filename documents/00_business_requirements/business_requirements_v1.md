@@ -23,7 +23,7 @@
 6. [Non-Functional Requirements](#non-functional-requirements)
 7. [Business Rules &amp; Constraints](#business-rules--constraints)
 8. [Success Metrics &amp; KPIs](#success-metrics--kpis)
-9. [Risk Assessment](#risk-assessment)z
+9. [Risk Assessment](#risk-assessment)
 10. [Implementation Timeline](#implementation-timeline)
 11. [Budget &amp; Resource Requirements](#budget--resource-requirements)
 12. [Compliance &amp; Regulatory Requirements](#compliance--regulatory-requirements)
@@ -211,8 +211,8 @@ Development of an enterprise-grade machine learning platform that predicts taxi 
 
 #### **Technical Teams**
 
-- **ML Engineering Team**: Model development and deployment
 - **Data Engineering Team**: Data pipeline development
+- **ML Engineering Team**: Model development and deployment
 - **DevOps Team**: Infrastructure and deployment
 - **QA Team**: Testing and quality assurance
 
@@ -220,11 +220,11 @@ Development of an enterprise-grade machine learning platform that predicts taxi 
 
 | Stakeholder                        | Primary Needs                                   | Success Criteria                         | Communication Frequency |
 | ---------------------------------- | ----------------------------------------------- | ---------------------------------------- | ----------------------- |
-| **CTO**                      | Technical excellence, scalability               | System performance, architecture quality | Weekly                  |
-| **Operations Head**          | Operational efficiency, reliability             | SLA compliance, uptime metrics           | Daily                   |
-| **Customer Experience Head** | Customer satisfaction improvement               | NPS scores, complaint reduction          | Weekly                  |
-| **Dispatch Team**            | Easy-to-use interface, accurate predictions     | User adoption, prediction accuracy       | Daily                   |
-| **Data Science Team**        | Model performance, experimentation capabilities | Model metrics, A/B test results          | Daily                   |
+| **CTO**                      | Technical excellence, scalability               | System performance, architecture quality | Monthly                  |
+| **Operations Head**          | Operational efficiency, reliability             | SLA compliance, uptime metrics           | Monthly                  |
+| **Customer Experience Head** | Customer satisfaction improvement               | NPS scores, complaint reduction          | Monthly                  |
+| **Dispatch Team**            | Easy-to-use interface, accurate predictions     | User adoption, prediction accuracy       | Weekly                   |
+| **Data Science Team**        | Model performance, experimentation capabilities | Model metrics, A/B test results          | Weekly                   |
 
 
 ## ⚙️ **Functional Requirements**
@@ -1322,7 +1322,7 @@ integration_tests = {
 - Legal & Compliance Team
 
 
-**Document Classification**: Internal Use
-**Next Review Date**: November 2025
-**Document Owner**: Ravi kumar chavva
+**Document Classification**: Internal Use  
+**Next Review Date**: November 2025  
+**Document Owner**: Ravi kumar chavva  
 **Contact Information**: ravikumarchavva@outlook.com
